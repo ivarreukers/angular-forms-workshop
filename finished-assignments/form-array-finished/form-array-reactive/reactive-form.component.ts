@@ -8,8 +8,10 @@ import { Gender } from './customer.model';
     styleUrls: ['./reactive-form.component.scss']
 })
 export class ReactiveFormsComponent implements OnInit{
-    // used in template
+    // allows the usage of the Gender enum (see customer.model.ts) in the template
     Gender = Gender;
+    
+    // prefilled arary of skill levels
     skillLevels: string[] = ["Student", "Junior", "Medior", "Senior", "CodeSmith", "Champion"];
 
     formGroup: FormGroup;
@@ -26,7 +28,7 @@ export class ReactiveFormsComponent implements OnInit{
             gender: [''],
             skillLevel: [''],
             addresses: this.formBuilder.array([
-                this.formBuilder.group({
+                this.formBuilder.group({        // since we have 2 formcontrols in a formarray, we need to use formGroup
                     line: [''],
                     country: ['']
                 })
@@ -35,7 +37,9 @@ export class ReactiveFormsComponent implements OnInit{
     }
 
     public addAddress(): void {
+        // get the formarray, with explicit cast so we get access to the 'push' function
         let formArray = this.formGroup.get('addresses') as FormArray;
+        // create a new formgroup with two formcontrols
         let newAddress = this.formBuilder.group({
             line: [''],
             country: ['']
@@ -44,6 +48,7 @@ export class ReactiveFormsComponent implements OnInit{
     }
 
     public deleteAddress(index: number): void {
+        // explicit cast to FormArray so we have access to the 'removeAt' function
         let formArray = this.formGroup.get('addresses') as FormArray;
         formArray.removeAt(index);
     }
