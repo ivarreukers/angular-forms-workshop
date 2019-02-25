@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
+
+// import the required classes from angular forms
+import { FormGroup, FormBuilder } from '@angular/forms';
+
+// in this example i created a Customer model including a Gender enum
 import { Gender } from './customer.model';
 
 @Component({
@@ -8,15 +12,18 @@ import { Gender } from './customer.model';
     styleUrls: ['./reactive-form.component.scss']
 })
 export class ReactiveFormsComponent implements OnInit{
-    // used in template
-    Gender = Gender;
-    skillLevels: string[] = ["Student", "Junior", "Medior", "Senior", "CodeSmith", "Champion"];
+    // allows the usage of the Gender enum (see customer.model.ts) in the template
+    public Gender = Gender;
+    
+    // prefilled arary of skill levels
+    public skillLevels: string[] = ["Student", "Junior", "Medior", "Senior", "CodeSmith", "Champion"];
 
-    formGroup: FormGroup;
+    public formGroup: FormGroup;
 
     constructor(private formBuilder: FormBuilder) { }
 
     public ngOnInit(): void {
+        // create a formGroup using the formbuilder
         this.formGroup = this.formBuilder.group({
             username: [''],
             firstName: ['Default'],
