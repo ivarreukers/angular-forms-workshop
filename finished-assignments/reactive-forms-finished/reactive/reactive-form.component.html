@@ -28,6 +28,7 @@
         </div>
 
         <div>
+            <!-- If all radio buttons have the same formControlName, they will belong to the same 'group'-->
             Select gender:
             <input type="radio" [value]="Gender.MALE" formControlName="gender"/>Male
             <input type="radio" [value]="Gender.FEMALE" formControlName="gender"/>Female
@@ -37,6 +38,7 @@
         <div>
             Select Developer level
             <select formControlName="skillLevel">
+                <!-- Loop through all skillLevels and print them into an 'option' -->
                 <option *ngFor="let skillLevel of skillLevels" [value]="skillLevel">
                     {{skillLevel}}
                 </option>
@@ -45,8 +47,9 @@
         <input type="submit"/>
         
     </form>
-    
+    <!-- shows the form value live on screen -->
     <p>Form Value: {{ formGroup.value | json }}</p>
       
+    <!-- show the form status live on screen -->
     <p>Form Status: {{ formGroup.status }}</p>
 </div>
