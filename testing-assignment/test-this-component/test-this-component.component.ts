@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Address } from './address.model';
-import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-test-this-component',
@@ -48,13 +47,6 @@ export class TestThisComponentComponent implements OnInit {
 
   public setAddress(address: Address) {
     this.address = address;
-  }
-
-  public isAbstractControlValid(control: AbstractControl) {
-    const isValid = control.dirty && control.valid;
-    const isCorrect = control.value <= 22.91;
-
-    return isValid && isCorrect;
   }
 
   public constructDate(dayOfMonth: number, month: number, year: number): Date {
