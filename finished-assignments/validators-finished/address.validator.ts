@@ -13,7 +13,7 @@ export function addressesValidator(control: AbstractControl): {[key: string]: an
     // note: the .get() doesn't take a number, so we add '' before i so it is a string value
     for(let i = 0; i < formArray.length; i++) {
         const currentPostcode: string = formArray.get(''+i).get('postcode').value;
-        for(let j = 0; j < formArray.length; j++) {
+        for(let j = i+1; j < formArray.length; j++) {
             if(currentPostcode === formArray.get(''+j).get('postcode').value) {
                 return {'Double-postcode': currentPostcode};
             }
