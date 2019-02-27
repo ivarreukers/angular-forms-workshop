@@ -10,7 +10,7 @@ describe('TestThisComponent', () => {
 
     it('should return the date for filled in fields', () => {
         const dayOfMonth = 18;
-        const month = 12;
+        const month = 11;
         const year = 2111;
 
         const result = component.constructDate(dayOfMonth, month, year);
