@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ApiResponse } from './address.model';
+import { ApiResponse } from './api-response.model';
 import { RegistrationFormService } from './registration-form.service';
 import { Router } from '@angular/router';
 
